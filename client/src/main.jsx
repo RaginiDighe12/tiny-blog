@@ -1,10 +1,21 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+import {BrowserRouter , Routes , Route} from "rect-route";
+import AllBogs from "./views/AllBlogs";
+import NewBlogs from "./views/NewBlogs";
+import ReadBlogs from "./views/ReadBlogs";
+import EditBlogs from "./views/EditBlogs";
+
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+ <BrowerRouter>
+ <Routes>
+  <Route path="/" element={<AllBogs/>}/>
+  <Route path="/new" element={<NewBlogs/>}/>
+  <Route path="/edit/:id" element={<EditBlogs/>}/>
+  <Route path="/read/:slug" element={<ReadBlogs/>}/>
+  <Route path="*" element={<h1 >404 Not Found</h1>}/>
+
+  </Routes></BrowerRouter>
+);
